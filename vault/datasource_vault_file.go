@@ -21,31 +21,31 @@ func dataSourceFile() *schema.Resource {
 
 		Schema: map[string]*schema.Schema{
 			"vault_string": {
-                Optional:    true,
-				Type:        schema.TypeString,
-                Default:     "",
-				Description: "Encrypted string",
+				Optional:      true,
+				Type:          schema.TypeString,
+				Default:       "",
+				Description:   "Encrypted string",
 				ConflictsWith: []string{"vault_file"},
 			},
 			"vault_password_file": {
-                Optional:    true,
-				Type:        schema.TypeString,
-                Default:     "",
-				Description: "Vault password file",	
+				Optional:      true,
+				Type:          schema.TypeString,
+				Default:       "",
+				Description:   "Vault password file",
 				ConflictsWith: []string{"prompt_vault_pass"},
 			},
 			"prompt_vault_pass": {
-                Optional:    true,
-				Type:        schema.TypeString,
-                Default:     "false",
-				Description: "User input for vault password",	
+				Optional:      true,
+				Type:          schema.TypeString,
+				Default:       "false",
+				Description:   "User input for vault password",
 				ConflictsWith: []string{"vault_password_file"},
-				Sensitive:   true,
-			},  
+				Sensitive:     true,
+			},
 			"vault_file": &schema.Schema{
-				Type:        schema.TypeString,
-				Optional:    true,
-				Description: "file to read template from",
+				Type:          schema.TypeString,
+				Optional:      true,
+				Description:   "file to read template from",
 				ConflictsWith: []string{"vault_string"},
 				// Make a "best effort" attempt to relativize the file path.
 				StateFunc: func(v interface{}) string {
@@ -62,7 +62,7 @@ func dataSourceFile() *schema.Resource {
 					}
 					return rel
 				},
-				Deprecated:    "Use the 'template' attribute instead.",
+				Deprecated: "Use the 'template' attribute instead.",
 			},
 		},
 	}
@@ -93,7 +93,6 @@ func renderFile(d *schema.ResourceData) (string, error) {
 
 	return contents, nil
 }
-
 
 // type templateRenderError error
 

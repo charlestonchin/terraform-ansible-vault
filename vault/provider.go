@@ -8,8 +8,7 @@ import (
 func Provider() terraform.ResourceProvider {
 	return &schema.Provider{
 		DataSourcesMap: map[string]*schema.Resource{
-			"vault_file":    dataSourceFile(),       
-
+			"vault_file": dataSourceFile(),
 		},
 	}
 }

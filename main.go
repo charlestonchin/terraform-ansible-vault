@@ -1,10 +1,10 @@
 package main
 
 import (
+	_ "fmt"
+	"github.com/ansible_vault/terraform-provider-ansible-vault/vault"
+	"github.com/hashicorp/terraform/plugin"
 	_ "log"
-  _ "fmt"
-  "github.com/hashicorp/terraform/plugin"
-  "github.com/ansible_vault/terraform-provider-ansible-vault/vault"
 )
 
 /*func main() {
